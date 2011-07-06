@@ -9,9 +9,11 @@ function onRequest(request, sender, callback){
         url: 'https://www.facebook.com/ajax/pagelet/generic.php/pagelet/home/morestories.php?__a=1',
         dataType: "text",
         success: function( data ) {
-           console.log("We have facebook!");
+           //get rid of the random forloop at the beginning
            var dataSplit = data.split("for (;;);");
            var goodData = dataSplit[1];
+           
+           //parse into json
            var jsonData = $.parseJSON(goodData);
            callback(jsonData);
         }
