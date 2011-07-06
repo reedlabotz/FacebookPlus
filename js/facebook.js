@@ -24,7 +24,14 @@ function loadFacebook(){
       var goodData = dataSplit[1];
       var jsonData = $.parseJSON(goodData);
       $(".a-b-f-i-oa").html(jsonData.payload);
+      
+      //lets clean up the css a little bit
       $(".genericStreamStory").addClass("a-b-f-i a-f-i");
+      $(".like_link").hide();
+      $(".comment_link").hide();
+      $(".commentArea").hide();
+      $(".commentActions").hide();
+      
    });
 }
 
