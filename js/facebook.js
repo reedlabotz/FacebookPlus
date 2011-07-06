@@ -25,6 +25,10 @@ function loadFacebook(){
       var jsonData = $.parseJSON(goodData);
       $(".a-b-f-i-oa").html(jsonData.payload);
       $(".genericStreamStory").addClass("a-b-f-i a-f-i");
+      
+      $("li.pvm").each( function(){ 
+         $(this).replaceWith( "<div>" + $(this).html() + "</div>" );}
+      );
    });
 }
 
