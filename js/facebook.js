@@ -1,13 +1,7 @@
 //$(".a-la-h-ga:last").after("Facebook");
 
 
-chrome.extension.sendRequest({'action' : 'getFacebook'},function(data){
-   console.log("We have facebook in google+");
-   var dataSplit = data.split("for (;;);");
-   var goodData = dataSplit[1];
-   var jsonData = $.parseJSON(goodData);
-   //$("#content").html(jsonData.payload);
-});
+
 
 $(".a-b-la-A").bind("DOMSubtreeModified", function() {
    console.log("Changed");
@@ -20,8 +14,18 @@ $(".a-b-la-A").bind("DOMSubtreeModified", function() {
 });
 
 function loadFacebook(){
-   console.log('hi!');
-   
+   $("#fb-stream a").addClass("a-la-Rb-h");
+   $("#fb-stream a").addClass("a-la-h-Pa");
+   $(".d-h.a-b-f-zd-gb-h.a-f-zd-gb-h").hide();
+   $(".a-b-f-i-oa").html("Loading...");
+   chrome.extension.sendRequest({'action' : 'getFacebook'},function(data){
+      console.log("We have facebook in google+");
+      var dataSplit = data.split("for (;;);");
+      var goodData = dataSplit[1];
+      var jsonData = $.parseJSON(goodData);
+      $(".a-b-f-i-oa").html(jsonData.payload);
+      $(".genericStreamStory").addClass("a-b-f-i a-f-i");
+   });
 }
 
 

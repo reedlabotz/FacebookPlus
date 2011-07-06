@@ -4,14 +4,15 @@
 chrome.extension.onRequest.addListener(onRequest);
 
 function onRequest(request, sender, callback){
-   $.ajax({
-     url: 'https://www.facebook.com/ajax/pagelet/generic.php/pagelet/home/morestories.php?__a=1',
-     dataType: "text",
-     success: function( data ) {
-        console.log("We have facebook!");
-        console.log(data);
-        callback(data);
-     }
-   });
+   if(request.action == "getFacebook"){
+      $.ajax({
+        url: 'https://www.facebook.com/ajax/pagelet/generic.php/pagelet/home/morestories.php?__a=1',
+        dataType: "text",
+        success: function( data ) {
+           console.log("We have facebook!");
+           callback(data);
+        }
+     });
+  }
 }
 </script>
