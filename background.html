@@ -5,8 +5,12 @@ chrome.extension.onRequest.addListener(onRequest);
 
 function onRequest(request, sender, callback){
    if(request.action == "getFacebook"){
+      console.log(request.oldest);
+      var theUrl = 'https://www.facebook.com/ajax/pagelet/generic.php/pagelet/home/morestories.php?__a=1';
+      if(request.oldest)
+         theUrl = 'https://www.facebook.com/ajax/pagelet/generic.php/pagelet/home/morestories.php?__a=1&data={%22oldest%22:' + request.oldest+ '}';
       $.ajax({
-        url: 'https://www.facebook.com/ajax/pagelet/generic.php/pagelet/home/morestories.php?__a=1',
+        url: theUrl,
         dataType: "text",
         success: function( data ) {
            //get rid of the random forloop at the beginning
@@ -15,6 +19,7 @@ function onRequest(request, sender, callback){
            
            //parse into json
            var jsonData = $.parseJSON(goodData);
+           console.log(jsonData);
            callback(jsonData);
         }
      });

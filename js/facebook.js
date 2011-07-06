@@ -1,3 +1,5 @@
+var lastOldest;
+
 $(".d-h.a-b-h-Jb.a-la-h.a-b-la-nK.a-la-hA").before(
    "<div id=\"fb-stream\" class=\"a-la-h-ga\"><a class=\"d-h a-b-h-Jb a-la-h a-la-Rb-h a-b-la-Rb-h\">Facebook</a></div>"
 );
@@ -61,8 +63,15 @@ function addPosts(data) {
    //remove more button
     $("#more").remove();
 
-   //if logged in display the content
-   $(".a-b-f-i-oa").append(data.payload);
+    //if logged in display the content
+    $(".a-b-f-i-oa").append(data.payload);
+   
+   var lastLi = $(".a-b-f-i-oa li.pvm:last")[0];
+   console.log(lastLi);
+   var dataLastLi = $.parseJSON($(lastLi).attr("data-ft"));
+   console.log(dataLastLi)
+   lastOldest = dataLastLi.pub_time;
+   
    
    //make the stories fit the theme a little
    // li -> div removes those pesky dots
@@ -85,6 +94,8 @@ function addPosts(data) {
       
       //add permalink if supported (doesn't exist if you can't comment)
       var permalink = time.parent().attr("href");
+
+      //console.log(permalink);
       var permainkText = ""
       if (permalink) {
          //fix relative links
@@ -93,6 +104,8 @@ function addPosts(data) {
       } else {
          permalinkText = " "
       }
+      
+      //console.log(permalinkText);
       
       $(this).prepend("<div class=\"google-header\"></div>");
       $(this).children(".google-header").append("<span class=\"a-f-i-go\"></span>");
@@ -228,7 +241,7 @@ function addPosts(data) {
 function getPosts() {
    $("#more .more").html("Loading...");
    $("#more").click(function(){});
-   chrome.extension.sendRequest({'action' : 'getFacebook'},function(data){
+   chrome.extension.sendRequest({'action' : 'getFacebook','oldest':lastOldest},function(data){
       console.log("We have facebook in google+");
       
       //hide the loading bok
