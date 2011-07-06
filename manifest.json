@@ -10,17 +10,13 @@
       "48" : "logo.png"
    },
    "permissions" :[
-      "tabs",
-      "http://*/*",
-      "https://*/*",
-      "history",
-      "geolocation",
-	   "chrome://favicon/"
+      "https://www.facebook.com/"
    ],
+   "background_page" : "background.html",
    "content_scripts": [
        {
-         "matches": ["https://plus.google.com/*"],
-         "js": ["js/facebook.js"],
+         "matches": ["https://plus.google.com/","https://plus.google.com/stream/*"],
+         "js": ["js/jquery.min.js","js/facebook.js"],
          "run_at": "document_start",
          "all_frames": true
        }
