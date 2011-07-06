@@ -2,9 +2,6 @@
    "name" : "FacebookCircle",
    "version" : "0.0.1",
    "description" : "Add a facebook circle to google+",
-   "browser_action" : {
-      "default_icon" : "logo.png"
-   },
    "icons" :{
       "16" : "logo.png",
       "48" : "logo.png"
