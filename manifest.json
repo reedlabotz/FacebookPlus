@@ -17,7 +17,7 @@
        {
          "matches": ["https://plus.google.com/","https://plus.google.com/stream/*"],
          "js": ["js/jquery.min.js","js/facebook.js"],
-         "run_at": "document_start",
+         "run_at": "document_end",
          "all_frames": true
        }
     ]
