@@ -17,20 +17,22 @@ function loadFacebook(){
    $("#fb-stream a").addClass("a-la-Rb-h");
    $("#fb-stream a").addClass("a-la-h-Pa");
    $(".d-h.a-b-f-zd-gb-h.a-f-zd-gb-h").hide();
-   $(".a-b-f-i-oa").html("Loading...");
+   $(".a-b-f-i-oa").html("<div class=\"a-b-f-i a-f-i\">Loading...</div>");
    chrome.extension.sendRequest({'action' : 'getFacebook'},function(data){
       console.log("We have facebook in google+");
-      var dataSplit = data.split("for (;;);");
-      var goodData = dataSplit[1];
-      var jsonData = $.parseJSON(goodData);
-      $(".a-b-f-i-oa").html(jsonData.payload);
-      
-      //lets clean up the css a little bit
-      $(".genericStreamStory").addClass("a-b-f-i a-f-i");
-      $(".like_link").hide();
-      $(".comment_link").hide();
-      $(".commentArea").hide();
-      $(".commentActions").hide();
+      console.log(data);
+      if(data.errorSummary == "Not Logged In"){
+         $(".a-b-f-i-oa").html("<div class=\"a-b-f-i a-f-i\">You are not logged in to facebook. Please visit <a href=\"http://facebook.com/\">Facebook</a> and log in.</div>");
+      }else{
+         $(".a-b-f-i-oa").html(data.payload);
+         
+         //lets clean up the css a little bit
+         $(".genericStreamStory").addClass("a-b-f-i a-f-i");
+         $(".like_link").hide();
+         $(".comment_link").hide();
+         $(".commentArea").hide();
+         $(".commentActions").hide();
+      }
       
    });
 }

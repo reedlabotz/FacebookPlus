@@ -10,7 +10,10 @@ function onRequest(request, sender, callback){
         dataType: "text",
         success: function( data ) {
            console.log("We have facebook!");
-           callback(data);
+           var dataSplit = data.split("for (;;);");
+           var goodData = dataSplit[1];
+           var jsonData = $.parseJSON(goodData);
+           callback(jsonData);
         }
      });
   }
