@@ -13,7 +13,15 @@ $(".a-b-la-A").bind("DOMSubtreeModified", function() {
    console.log("Changed");
    if( $("#fb-stream").length == 0) {
 	  $(".d-h.a-b-h-Jb.a-la-h.a-b-la-nK.a-la-hA").before(
-         "<div id=\"fb-stream\" class=\"a-la-h-ga\"><a class=\"d-h a-b-h-Jb a-la-h a-la-Rb-h a-b-la-Rb-h\">Facebook</a></div>"
+         "<div id=\"fb-stream\" class=\"a-la-h-ga\"><a href=\"#\" class=\"d-h a-b-h-Jb a-la-h a-la-Rb-h a-b-la-Rb-h\">Facebook</a></div>"
 	  );
+	  $("#fb-stream").click(loadFacebook);
 	}
 });
+
+function loadFacebook(){
+   console.log('hi!');
+   
+}
+
+
