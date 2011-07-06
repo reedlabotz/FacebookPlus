@@ -123,8 +123,8 @@ function addPosts(data) {
       var namelist = $(this).find(".uiStreamAttachments .namelist");
       
       //Style "* other people"
-      $(this).find(".uiStreamMessage .uiTooltip .uiTooltipWrap").hide();
-      $(this).find(".uiStreamMessage .uiTooltip").hide().after($(this).find(".uiStreamMessage .uiTooltip").html());
+      $(this).find(".uiStreamMessage .uiTooltip .uiTooltipWrap").remove();
+      $(this).find(".uiStreamMessage .uiTooltip").hide().after($(this).find(".uiStreamMessage .uiTooltip").text());
       
       //facepile style
       $(this).find(".uiFacepile .uiFacepileItem").css("display","inline");
