@@ -4,7 +4,7 @@
 
 
 $(".a-b-la-A").bind("DOMSubtreeModified", function() {
-   console.log("Changed");
+   //check if the facebook link is there
    if( $("#fb-stream").length == 0) {
 	  $(".d-h.a-b-h-Jb.a-la-h.a-b-la-nK.a-la-hA").before(
          "<div id=\"fb-stream\" class=\"a-la-h-ga\"><a class=\"d-h a-b-h-Jb a-la-h a-la-Rb-h a-b-la-Rb-h\">Facebook</a></div>"
@@ -39,7 +39,6 @@ function loadFacebook(){
    //get the facebook data using the background page
    chrome.extension.sendRequest({'action' : 'getFacebook'},function(data){
       console.log("We have facebook in google+");
-      console.log(data);
       
       //hide the loading bok
       $(".qd").html("");
