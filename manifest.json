@@ -1,7 +1,7 @@
 {
-   "name" : "FacebookCircle",
-   "version" : "0.0.3",
-   "description" : "Add a facebook circle to google+",
+   "name" : "Facebook+",
+   "version" : "0.1.0",
+   "description" : "Add a facebook stream to google+",
    "icons" :{
       "16" : "logo.png",
       "48" : "logo_48.png",
