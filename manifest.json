@@ -1,6 +1,6 @@
 {
    "name" : "Facebook+",
-   "version" : "0.1.0",
+   "version" : "0.1.1",
    "description" : "Add a facebook stream to google+",
    "icons" :{
       "16" : "logo.png",
@@ -13,7 +13,7 @@
    "background_page" : "background.html",
    "content_scripts": [
        {
-         "matches": ["https://plus.google.com/","https://plus.google.com/stream/*"],
+         "matches": ["https://plus.google.com/","https://plus.google.com/stream/*","https://plus.google.com/?*"],
          "js": ["js/jquery.min.js","js/facebook.js"],
          "run_at": "document_end",
          "all_frames": true
