@@ -66,7 +66,7 @@ function addPosts(data) {
     //if logged in display the content
     $(".a-b-f-i-oa").append(data.payload);
    
-   var lastLi = $(".a-b-f-i-oa li.pvm:last")[0];
+   var lastLi = $(".a-b-f-i-oa").children("li:last");
    console.log(lastLi);
    var dataLastLi = $.parseJSON($(lastLi).attr("data-ft"));
    console.log(dataLastLi)
@@ -161,7 +161,7 @@ function addPosts(data) {
    
    //The arrow denoting wall posts
    //UNTESTED (not showing up in my feed at the moment)
-   $(".sp_1714d3.sx_d8efe5").hide().replaceWith("&nbsp;&#187;&nbsp;");
+   $(".actorName i").hide().replaceWith("&nbsp;&#187;&nbsp;");
    
    //minor tweaks to photo album posts
    //Ideally, this would actually use the google picture layout, but I'm tired. Maybe later 
