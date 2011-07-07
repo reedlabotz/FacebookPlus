@@ -234,12 +234,12 @@ function addPosts(data) {
    $(".uiUfiComment").addClass("a-f-i-W");
    $(".uiUfiViewAll").addClass("a-f-i-W");
    
-   $(".facebook").append("<div id=\"more\" class=\"a-b-f-zd-gb-A a-f-zd-gb-A\"><span role=\"button\" class=\"more d-h a-b-f-zd-gb-h a-f-zd-gb-h\">MORE</span></div>");
+   $(".facebook").append("<div id=\"more\" class=\"a-b-f-zd-gb-A a-f-zd-gb-A\"><span role=\"button\" class=\"more d-h a-b-f-zd-gb-h a-f-zd-gb-h\">More</span></div>");
    $("#more").click(getPosts);
 }
 
 function getPosts() {
-   $("#more .more").html("Loading...");
+   $("#more .more").html("<img src=\"https://ssl.gstatic.com/s2/profiles/images/Spinner.gif\"> Loading...");
    $("#more").click(function(){});
    chrome.extension.sendRequest({'action' : 'getFacebook','oldest':lastOldest},function(data){
       console.log("We have facebook in google+");
