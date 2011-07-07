@@ -1,7 +1,7 @@
 {
    "name" : "Facebook+",
-   "version" : "0.1.1",
-   "description" : "Add a facebook stream to google+",
+   "version" : "0.1.2",
+   "description" : "Add the Facebook news feed as a Google+ stream",
    "icons" :{
       "16" : "logo.png",
       "48" : "logo_48.png",
